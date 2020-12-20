@@ -13,6 +13,7 @@ from tqdm import tqdm
 import pyHiChi as pfc
 
 import beam_generation as bg
+import setting_fields as sf
 
 
 def save(file, x_data, y_data):
@@ -54,11 +55,11 @@ def solver(a00, step_t, number_electron):
     grid_size = pfc.Vector3d(2, 2, 2)
     min_coords = pfc.Vector3d(-leight_sm, -leight_sm, -leight_sm)
     max_coords = pfc.Vector3d(leight_sm, leight_sm, leight_sm)
-    steps_grid = bg.step(min_coords, max_coords, grid_size)
+    steps_grid = sf.step(min_coords, max_coords, grid_size)
 
-    bg.a0 = a00
+    sf.a0 = a00
     time_step = (10 ** -4 / (c * step_t))
-    func = bg.gen_func()
+    func = sf.gen_func()
     grid = pfc.YeeField(grid_size, min_coords, steps_grid, time_step)
 
     ensemble = bg.gen_beam(number_electron, gamma)
