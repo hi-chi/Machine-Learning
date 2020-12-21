@@ -98,8 +98,7 @@ def calculation_gamma(ensemble):
 
 
 def main():
-    """
-    Main function of generating data for machine learning
+    """Main function of generating data for machine learning.
 
     Running lots of simulations of the experiment. The calculation of the
     normalized energy for every simulation. Saving data
@@ -108,7 +107,7 @@ def main():
     step_t = 100
     number_electrons = 10000
 
-    range_ = range(11, 1000, 5)
+    range_ = range(10, 1000, 10)
 
     my_len = len(range_)
 
@@ -123,7 +122,7 @@ def main():
 
         y_data[i] = a00
 
-    save('data.h5', gamma, y_data)
+    save('../data/gamma_electrons.h5', gamma, y_data)
 
 
 if __name__ == "__main__":
