@@ -14,6 +14,7 @@ def gen_electron(gamma):
     Returns:
         electron
     """
+    
     pos = pfc.Vector3d(0, 0, 0)
 
     momentum_x = gamma * pfc.LIGHT_VELOCITY * pfc.ELECTRON_MASS
@@ -33,6 +34,7 @@ def gen_beam(number_electrons, gamma):
     Returns:
         electron beam
     """
+
     beam = pfc.Ensemble()
 
     for _ in range(number_electrons):
