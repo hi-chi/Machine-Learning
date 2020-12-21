@@ -7,7 +7,7 @@ N_TRAIN_DATA times data for each а00. Once for validation and test samples
 The script uses command line arguments. Use --help for more information.
 
 Example:
-    python create_histogram.py -if electrons.h5 -of data_xgb.h5 -nb 20 -ne 500
+    python create_histogram.py -if ../data/gamma_electrons.h5 -of ../data/data_xgb.h5 -nb 20 -ne 500
 """
 
 import sys
@@ -24,9 +24,9 @@ def create_parser():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-if', '--in_file', default="data.h5", type=str,
+    parser.add_argument('-if', '--in_file', default="../data/data.h5", type=str,
                         help="name of the source data file (in format .h5)")
-    parser.add_argument('-of', '--out_file', default="data.h5", type=str,
+    parser.add_argument('-of', '--out_file', default="../data/data.h5", type=str,
                         help="file name with histograms data (in format .h5)")
 
     parser.add_argument('-nb', '--n_bins', default=10, type=int,
@@ -48,7 +48,7 @@ def read(file):
 
     h5f = h5py.File(file, 'r')
 
-    electrons = np.asarray(h5f['electrons'])
+    electrons = np.asarray(h5f['e'])
     y_label = np.asarray(h5f['y'])
 
     h5f.close()
