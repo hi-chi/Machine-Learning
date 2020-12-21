@@ -105,9 +105,9 @@ def main():
     for all the necessary values of the parameter a00.
     """
     step_t = 100
-    number_electrons = 100000
+    number_electrons = 10000
 
-    range_ = range(10, 1000, 1)
+    range_ = range(10, 1000, 10)
 
     my_len = len(range_)
 

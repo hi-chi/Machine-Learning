@@ -48,7 +48,7 @@ def read(file):
 
     h5f = h5py.File(file, 'r')
 
-    electrons = np.asarray(h5f['electrons'])
+    electrons = np.asarray(h5f['e'])
     y_label = np.asarray(h5f['y'])
 
     h5f.close()
