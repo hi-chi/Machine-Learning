@@ -302,14 +302,24 @@ def split_data_for_noise_test(x_data, y_data, random_state):
 
     return x_train, y_train,  x_test, y_test
 
-hdf = '../data/spectrum.h5'
+file =  h5py.File('../data/spectrum1.h5', 'r')
 
-file =  h5py.File(hdf, 'r')
+spectra1 = np.array(file['spectrum'])
+phi1 = np.array(file['phi'])
+theta1 = np.array(file['theta'])
+lp1 = np.array(file['lp'])
 
-spectra = np.array(file['spectrum'])
-phi = np.array(file['phi'])
-theta = np.array(file['theta'])
-lp = np.array(file['lp'])
+file =  h5py.File('../data/spectrum2.h5', 'r')
+
+spectra2 = np.array(file['spectrum'])
+phi2 = np.array(file['phi'])
+theta2 = np.array(file['theta'])
+lp2 = np.array(file['lp'])
+
+spectra = np.concatenate([spectra1, spectra2])
+phi = np.concatenate([phi1, phi2])
+theta = np.concatenate([theta1, theta2])
+lp = np.concatenate([lp1, lp2])
 
 target = np.concatenate([phi.reshape(-1, 1),
                          theta.reshape(-1, 1),
