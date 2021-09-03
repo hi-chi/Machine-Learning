@@ -320,6 +320,7 @@ noise_accuracy = []
 
 seed = [628, 693, 847, 621, 861, 409, 74, 306, 884, 777]
 for i in range(k):
+    np.random.seed(42)
     spectra_noise = utils.add_noise(spectra.copy(), noise_estimation.copy())
     x_train, y_train, x_test, y_test = split_data_for_noise_test(spectra_noise.copy(), target.copy(), seed[i])
 
