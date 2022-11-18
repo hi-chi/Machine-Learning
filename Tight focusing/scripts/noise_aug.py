@@ -1,10 +1,6 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
-os.environ['TF_NUM_INTEROP_THREADS'] = '3'
-os.environ['TF_NUM_INTRAOP_THREADS'] = '3'
-
 import tensorflow as tf
 
 import h5py
@@ -113,7 +109,7 @@ coef_noise = 1
 num_step = 5
 noise_epoch = 200
 
-for i in range(5, k):
+for i in range(k):
     np.random.seed(seed[i])
     tf.random.set_seed(seed[i])
     idxs = np.random.permutation(spectra.shape[0])
