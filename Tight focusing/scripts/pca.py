@@ -93,25 +93,16 @@ for i in range(k):
     x_train = scaler.transform(x_train)
     x_test = scaler.transform(x_test)
 
-    pca = PCA(n_components=24)
+    pca = PCA(n_components=40)
     pca.fit(x_train)
 
     x_train = pca.transform(x_train)
     x_test = pca.transform(x_test)
-
-    #x_train = x_train[:, 3:]
-    #x_test = x_test[:, 3:]
-
-    print(x_train.shape)
 
     x_train, x_test, x_min, x_max = utils.preprocessing(x_train, x_test)
     y_train, y_test, y_min, y_max = utils.preprocessing(y_train, y_test)
 
     model, history = train_nn(x_train, y_train, epochs)
 
-    y_pred = model.predict(x_test)
-    y_pred, y = utils.postprocessing(y_pred, y_test, y_min, y_max)
-    print(utils.metric(utils.create_df(y, y_pred)))
-
-    #model.save(path + 'model' + str(i) +'.h5')
-    #utils.save_data(x_test, y_test, i, path)
+    model.save(path + 'model' + str(i) +'.h5')
+    utils.save_data(x_test, y_test, i, path)
