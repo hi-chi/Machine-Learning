@@ -1,10 +1,6 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
-os.environ['TF_NUM_INTEROP_THREADS'] = '2'
-os.environ['TF_NUM_INTRAOP_THREADS'] = '2'
-
 import tensorflow as tf
 
 import warnings

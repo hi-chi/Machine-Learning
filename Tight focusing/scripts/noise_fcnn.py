@@ -1,7 +1,6 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
 import tensorflow as tf
 
 import h5py
@@ -87,7 +86,7 @@ k = 10
 epochs = 400
 seed = [895, 342, 664, 494, 128, 467, 573, 569, 574, 379]
 
-for i in range(6, k):
+for i in range(k):
     np.random.seed(seed[i])
     tf.random.set_seed(seed[i])
 

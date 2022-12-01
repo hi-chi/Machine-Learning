@@ -4,10 +4,6 @@ import numpy as np
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
-os.environ['TF_NUM_INTEROP_THREADS'] = '2'
-os.environ['TF_NUM_INTRAOP_THREADS'] = '2'
-
 import tensorflow as tf
 
 import warnings
@@ -103,7 +99,7 @@ coef_noise = 0.02
 
 seed = [270, 754, 179, 734, 379, 625, 663, 747, 227, 455]
 
-for i in range(6, k):
+for i in range(k):
     np.random.seed(seed[i])
     tf.random.set_seed(seed[i])
 

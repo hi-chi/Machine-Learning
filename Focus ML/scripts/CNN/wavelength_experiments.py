@@ -84,7 +84,7 @@ def exp(x_train, y_train, x_test, y_test, i, orig_test):
 
 
 if __name__ == "__main__":
-    x_data, y_data = utils.load_data(FEATURE_NAME, TARGET_NAME, '../data/train_wavelenght.h5')
+    x_data, y_data = utils.load_data(FEATURE_NAME, TARGET_NAME, '../data/train_wavelength.h5')
     x_test, y_test = utils.load_data(FEATURE_NAME, TARGET_NAME, '../data/paperdata.h5')
 
     set_global_determinism(seed=42)

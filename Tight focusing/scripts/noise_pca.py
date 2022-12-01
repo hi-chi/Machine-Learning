@@ -1,7 +1,6 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
 import tensorflow as tf
 
 import h5py
@@ -76,7 +75,7 @@ path = '../result/noise_pca/'
 seed = [786, 56, 425, 725, 399, 401, 19, 230, 174, 239]
 
 
-for i in range(8, k):
+for i in range(k):
     np.random.seed(seed[i])
     tf.random.set_seed(seed[i])
 
